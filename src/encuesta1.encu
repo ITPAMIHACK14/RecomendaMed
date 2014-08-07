@@ -1,0 +1,25 @@
+encuesta familiar {
+//	bloque principal {
+//		pregunta nombre {
+//			tipo = texto 
+//			longitud = 20
+//			obligatoria = true
+//			descripcion = 'Nombre'
+//			validar { edad > true }
+//		}
+//		pregunta fechaNac {
+//			tipo = texto 
+//			longitud = 20 
+//			validar { edad > true }
+//		}
+//		pregunta cantHijos {
+//			tipo = numerico
+//			rango = (0,)
+//		}
+//	}
+//	bloque pareja {
+//		visible si { principal.estadoCivil = casado }
+//		
+//	}
+	
+}

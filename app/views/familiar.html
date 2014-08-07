@@ -1,0 +1,64 @@
+<form name="encuesta" role="form" ng-controller="EncuestaFamiliarController">
+  <fieldset class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Identificación personal</h3>
+    </div>
+    <div class="panel-body">    
+      <div ng-class="{
+          'form-group':true, 
+          'has-success':encuesta.nombre.$valid, 
+          'has-error':encuesta.nombre.$invalid && encuesta.nombre.$dirty,
+          'has-feedback':true
+        }">
+        <label class="control-label" for="nombre">Nombre: </label>
+        <div class="form-group">
+          <input type="text" class="form-control" id="nombre" name="nombre" ng-model="nombre" ng-required="true">
+          <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="encuesta.nombre.$valid"></span>
+        </div>
+      </div>
+      <div class="form-group has-warning">
+        <label class="control-label" for="inputWarning1">Input with warning</label>
+        <input type="text" class="form-control" id="inputWarning1">
+      </div>
+      <div class="form-group has-error">
+        <label class="control-label" for="inputError1">Input with error</label>
+        <input type="text" class="form-control" id="inputError1">
+      </div>
+      <div class="form-group">
+        <label for="estadoCivil">Estado Civil</label>
+        <select id="estadoCivil" ng-model="estadoCivil" class="form-control">
+          <option>Soltero</option>
+          <option>Casado</option>
+        </select>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset ng-class="{
+      'panel': true,
+      'panel-primary': estadoCivil=='Casado',
+      'panel-default': estadoCivil!='Casado'
+    }" ng-disabled="estadoCivil!='Casado'">
+    <div class="panel-heading">
+      <h3 class="panel-title">Conyuge</h3>
+    </div>
+    <div class="panel-body">    
+      <div class="form-group">
+        <label for="disabledTextInput">Disabled input</label>
+        <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+      </div>
+      <div class="form-group">
+        <label for="disabledSelect">Disabled select menu</label>
+        <select id="disabledSelect" class="form-control">
+          <option>Disabled select</option>
+        </select>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Can't check this
+        </label>
+      </div>
+    </div>
+  </fieldset>
+   <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
