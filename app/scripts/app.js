@@ -25,7 +25,11 @@ angular
       })
       .when('/encuesta', {
         templateUrl: 'views/encuestas/familiar.html',
-        controller: 'EncuestaFamiliarController'
+        controller: 'familiar'
+      })
+      .when('/muestra', {
+        templateUrl: 'views/familiar.html',
+        controller: 'familiar'
       })
       .when('/about', {
         templateUrl: 'views/about.html',

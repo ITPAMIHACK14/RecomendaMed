@@ -11,6 +11,5 @@ angular.module('angularApp')
   .controller('MainCtrl', function ($scope) {
     $scope.nombre='Nico';
   })
-  .controller('EncuestaFamiliarController', function ($scope) {
-    $scope.nombre='Nico';
+  .controller('familiar', function ($scope) {
   });

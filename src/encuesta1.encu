@@ -1,25 +1,24 @@
 encuesta familiar {
-//	bloque principal {
-//		pregunta nombre {
-//			tipo = texto 
-//			longitud = 20
-//			obligatoria = true
-//			descripcion = 'Nombre'
-//			validar { edad > true }
-//		}
-//		pregunta fechaNac {
-//			tipo = texto 
-//			longitud = 20 
-//			validar { edad > true }
-//		}
+	titulo = "Encuesta de datos familiares"
+	bloque principal {
+		titulo = "Datos personales del encuestado"
+		pregunta nombre {
+			tipo = texto { max = 20 }
+			descripcion = "Nombre"
+			obligatoria
+		}
+		pregunta fechaNac {
+			tipo = texto { max = 20 }
+			descripcion = "Apellido"
+			obligatoria
+		}
 //		pregunta cantHijos {
 //			tipo = numerico
 //			rango = (0,)
 //		}
-//	}
-//	bloque pareja {
-//		visible si { principal.estadoCivil = casado }
-//		
-//	}
-	
+	}
+	bloque pareja {
+		visible si { principal.estadoCivil = casado }
+		titulo = "Datos del conyuge"
+	}	
 }
