@@ -1,6 +1,13 @@
 <h2>Encuesta de datos familiares</h2>
 <form name="familiar" role="form" ng-controller="familiar">
-<fieldset class="panel panel-primary">
+<fieldset 
+	ng-class="{
+		'panel': true,
+		'panel-primary': true,
+		'panel-default': !(true)
+	}" 
+	ng-disabled="!(true)"
+>
 	<div class="panel-heading">
 		<h3 class="panel-title">Datos personales del encuestado</h3>
 	</div>
@@ -15,6 +22,20 @@
 		<div class="form-group">
 			<input type="text" class="form-control" id="nombre" name="nombre" ng-model="nombre" ng-required="true">
 			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.nombre.$valid"></span>
+			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.nombre.$invalid && familiar.nombre.$dirty"></span>
+		</div>
+	</div>
+	<div ng-class="{
+		'form-group':true, 
+		'has-success':familiar.apellido.$valid, 
+		'has-error':familiar.apellido.$invalid && familiar.apellido.$dirty,
+		'has-feedback':true
+	}">
+		<label class="control-label" for="apellido">Apellido</label>
+		<div class="form-group">
+			<input type="text" class="form-control" id="apellido" name="apellido" ng-model="apellido" ng-required="true">
+			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.apellido.$valid"></span>
+			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.apellido.$invalid && familiar.apellido.$dirty"></span>
 		</div>
 	</div>
 	<div ng-class="{
@@ -23,19 +44,83 @@
 		'has-error':familiar.fechaNac.$invalid && familiar.fechaNac.$dirty,
 		'has-feedback':true
 	}">
-		<label class="control-label" for="fechaNac">Apellido</label>
+		<label class="control-label" for="fechaNac">Fecha de nacimiento</label>
 		<div class="form-group">
-			<input type="text" class="form-control" id="fechaNac" name="fechaNac" ng-model="fechaNac" ng-required="true">
+			<input type="date" class="form-control" id="fechaNac" name="fechaNac" ng-model="fechaNac" ng-required="true">
 			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.fechaNac.$valid"></span>
+			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.fechaNac.$invalid && familiar.fechaNac.$dirty"></span>
+		</div>
+	</div>
+	<div ng-class="{
+		'form-group':true, 
+		'has-success':familiar.estadoCivil.$valid, 
+		'has-error':familiar.estadoCivil.$invalid && familiar.estadoCivil.$dirty,
+		'has-feedback':true
+	}">
+		<label class="control-label" for="estadoCivil">Estado civil</label>
+		<div class="form-group">
+			<select id="estadoCivil" ng-model="estadoCivil" class="form-control">
+				<option>Soltero</option>
+				<option>Casado</option>
+				<option>Viudo</option>
+			</select>
+			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.estadoCivil.$valid"></span>
+			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.estadoCivil.$invalid && familiar.estadoCivil.$dirty"></span>
 		</div>
 	</div>
 	</div>
 </fieldset>
-<fieldset class="panel panel-primary">
+<fieldset 
+	ng-class="{
+		'panel': true,
+		'panel-primary':  estadoCivil == 'Casado',
+		'panel-default': !( estadoCivil == 'Casado')
+	}" 
+	ng-disabled="!( estadoCivil == 'Casado')"
+>
 	<div class="panel-heading">
 		<h3 class="panel-title">Datos del conyuge</h3>
 	</div>
 	<div class="panel-body">    
+	<div ng-class="{
+		'form-group':true, 
+		'has-success':familiar.nombre.$valid, 
+		'has-error':familiar.nombre.$invalid && familiar.nombre.$dirty,
+		'has-feedback':true
+	}">
+		<label class="control-label" for="nombre">Nombre</label>
+		<div class="form-group">
+			<input type="text" class="form-control" id="nombre" name="nombre" ng-model="nombre" ng-required="true">
+			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.nombre.$valid"></span>
+			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.nombre.$invalid && familiar.nombre.$dirty"></span>
+		</div>
+	</div>
+	<div ng-class="{
+		'form-group':true, 
+		'has-success':familiar.apellido.$valid, 
+		'has-error':familiar.apellido.$invalid && familiar.apellido.$dirty,
+		'has-feedback':true
+	}">
+		<label class="control-label" for="apellido">Apellido</label>
+		<div class="form-group">
+			<input type="text" class="form-control" id="apellido" name="apellido" ng-model="apellido" ng-required="true">
+			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.apellido.$valid"></span>
+			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.apellido.$invalid && familiar.apellido.$dirty"></span>
+		</div>
+	</div>
+	<div ng-class="{
+		'form-group':true, 
+		'has-success':familiar.fechaNac.$valid, 
+		'has-error':familiar.fechaNac.$invalid && familiar.fechaNac.$dirty,
+		'has-feedback':true
+	}">
+		<label class="control-label" for="fechaNac">Fecha de nacimiento</label>
+		<div class="form-group">
+			<input type="date" class="form-control" id="fechaNac" name="fechaNac" ng-model="fechaNac" ng-required="true">
+			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.fechaNac.$valid"></span>
+			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.fechaNac.$invalid && familiar.fechaNac.$dirty"></span>
+		</div>
+	</div>
 	</div>
 </fieldset>
 </form>
