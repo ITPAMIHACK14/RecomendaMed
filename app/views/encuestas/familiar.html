@@ -14,58 +14,64 @@
 	<div class="panel-body">    
 	<div ng-class="{
 		'form-group':true, 
-		'has-success':familiar.nombre.$valid, 
-		'has-error':familiar.nombre.$invalid && familiar.nombre.$dirty,
+		'has-success':familiar.principal_nombre.$valid, 
+		'has-error':familiar.principal_nombre.$invalid && familiar.principal_nombre.$dirty,
 		'has-feedback':true
 	}">
 		<label class="control-label" for="nombre">Nombre</label>
 		<div class="form-group">
-			<input type="text" class="form-control" id="nombre" name="nombre" ng-model="nombre" ng-required="true">
-			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.nombre.$valid"></span>
-			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.nombre.$invalid && familiar.nombre.$dirty"></span>
+			<input type="text" class="form-control" id="principal_nombre" name="principal_nombre" ng-model="principal.nombre" 
+				ng-required="true"
+				ng-maxlength="20"
+			>
+			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.principal_nombre.$valid"></span>
+			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.principal_nombre.$invalid && familiar.principal_nombre.$dirty"></span>
 		</div>
 	</div>
 	<div ng-class="{
 		'form-group':true, 
-		'has-success':familiar.apellido.$valid, 
-		'has-error':familiar.apellido.$invalid && familiar.apellido.$dirty,
+		'has-success':familiar.principal_apellido.$valid, 
+		'has-error':familiar.principal_apellido.$invalid && familiar.principal_apellido.$dirty,
 		'has-feedback':true
 	}">
 		<label class="control-label" for="apellido">Apellido</label>
 		<div class="form-group">
-			<input type="text" class="form-control" id="apellido" name="apellido" ng-model="apellido" ng-required="true">
-			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.apellido.$valid"></span>
-			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.apellido.$invalid && familiar.apellido.$dirty"></span>
+			<input type="text" class="form-control" id="principal_apellido" name="principal_apellido" ng-model="principal.apellido" 
+				ng-required="true"
+				ng-maxlength="20"
+			>
+			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.principal_apellido.$valid"></span>
+			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.principal_apellido.$invalid && familiar.principal_apellido.$dirty"></span>
 		</div>
 	</div>
 	<div ng-class="{
 		'form-group':true, 
-		'has-success':familiar.fechaNac.$valid, 
-		'has-error':familiar.fechaNac.$invalid && familiar.fechaNac.$dirty,
+		'has-success':familiar.principal_fechaNac.$valid, 
+		'has-error':familiar.principal_fechaNac.$invalid && familiar.principal_fechaNac.$dirty,
 		'has-feedback':true
 	}">
 		<label class="control-label" for="fechaNac">Fecha de nacimiento</label>
 		<div class="form-group">
 			<input type="date" class="form-control" id="fechaNac" name="fechaNac" ng-model="fechaNac" ng-required="true">
-			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.fechaNac.$valid"></span>
-			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.fechaNac.$invalid && familiar.fechaNac.$dirty"></span>
+			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.principal_fechaNac.$valid"></span>
+			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.principal_fechaNac.$invalid && familiar.principal_fechaNac.$dirty"></span>
 		</div>
 	</div>
 	<div ng-class="{
 		'form-group':true, 
-		'has-success':familiar.estadoCivil.$valid, 
-		'has-error':familiar.estadoCivil.$invalid && familiar.estadoCivil.$dirty,
+		'has-success':familiar.principal_estadoCivil.$valid, 
+		'has-error':familiar.principal_estadoCivil.$invalid && familiar.principal_estadoCivil.$dirty,
 		'has-feedback':true
 	}">
 		<label class="control-label" for="estadoCivil">Estado civil</label>
 		<div class="form-group">
-			<select id="estadoCivil" ng-model="estadoCivil" class="form-control">
+			<select id="principal_estadoCivil" name="principal_estadoCivil" ng-model="principal.estadoCivil" class="form-control">
 				<option>Soltero</option>
 				<option>Casado</option>
 				<option>Viudo</option>
 			</select>
-			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.estadoCivil.$valid"></span>
-			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.estadoCivil.$invalid && familiar.estadoCivil.$dirty"></span>
+			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.principal_estadoCivil.$valid"></span>
+			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.principal_estadoCivil.$invalid && familiar.principal_estadoCivil.$dirty"></span>
 		</div>
 	</div>
 	</div>
@@ -73,10 +79,10 @@
 <fieldset 
 	ng-class="{
 		'panel': true,
-		'panel-primary':  estadoCivil == 'Casado',
-		'panel-default': !( estadoCivil == 'Casado')
+		'panel-primary':  principal.estadoCivil == 'Casado',
+		'panel-default': !( principal.estadoCivil == 'Casado')
 	}" 
-	ng-disabled="!( estadoCivil == 'Casado')"
+	ng-disabled="!( principal.estadoCivil == 'Casado')"
 >
 	<div class="panel-heading">
 		<h3 class="panel-title">Datos del conyuge</h3>
@@ -84,41 +90,47 @@
 	<div class="panel-body">    
 	<div ng-class="{
 		'form-group':true, 
-		'has-success':familiar.nombre.$valid, 
-		'has-error':familiar.nombre.$invalid && familiar.nombre.$dirty,
+		'has-success':familiar.pareja_nombre.$valid, 
+		'has-error':familiar.pareja_nombre.$invalid && familiar.pareja_nombre.$dirty,
 		'has-feedback':true
 	}">
 		<label class="control-label" for="nombre">Nombre</label>
 		<div class="form-group">
-			<input type="text" class="form-control" id="nombre" name="nombre" ng-model="nombre" ng-required="true">
-			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.nombre.$valid"></span>
-			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.nombre.$invalid && familiar.nombre.$dirty"></span>
+			<input type="text" class="form-control" id="pareja_nombre" name="pareja_nombre" ng-model="pareja.nombre" 
+				ng-required="true"
+				ng-maxlength="20"
+			>
+			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.pareja_nombre.$valid"></span>
+			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.pareja_nombre.$invalid && familiar.pareja_nombre.$dirty"></span>
 		</div>
 	</div>
 	<div ng-class="{
 		'form-group':true, 
-		'has-success':familiar.apellido.$valid, 
-		'has-error':familiar.apellido.$invalid && familiar.apellido.$dirty,
+		'has-success':familiar.pareja_apellido.$valid, 
+		'has-error':familiar.pareja_apellido.$invalid && familiar.pareja_apellido.$dirty,
 		'has-feedback':true
 	}">
 		<label class="control-label" for="apellido">Apellido</label>
 		<div class="form-group">
-			<input type="text" class="form-control" id="apellido" name="apellido" ng-model="apellido" ng-required="true">
-			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.apellido.$valid"></span>
-			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.apellido.$invalid && familiar.apellido.$dirty"></span>
+			<input type="text" class="form-control" id="pareja_apellido" name="pareja_apellido" ng-model="pareja.apellido" 
+				ng-required="true"
+				ng-maxlength="20"
+			>
+			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.pareja_apellido.$valid"></span>
+			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.pareja_apellido.$invalid && familiar.pareja_apellido.$dirty"></span>
 		</div>
 	</div>
 	<div ng-class="{
 		'form-group':true, 
-		'has-success':familiar.fechaNac.$valid, 
-		'has-error':familiar.fechaNac.$invalid && familiar.fechaNac.$dirty,
+		'has-success':familiar.pareja_fechaNac.$valid, 
+		'has-error':familiar.pareja_fechaNac.$invalid && familiar.pareja_fechaNac.$dirty,
 		'has-feedback':true
 	}">
 		<label class="control-label" for="fechaNac">Fecha de nacimiento</label>
 		<div class="form-group">
 			<input type="date" class="form-control" id="fechaNac" name="fechaNac" ng-model="fechaNac" ng-required="true">
-			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.fechaNac.$valid"></span>
-			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.fechaNac.$invalid && familiar.fechaNac.$dirty"></span>
+			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.pareja_fechaNac.$valid"></span>
+			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.pareja_fechaNac.$invalid && familiar.pareja_fechaNac.$dirty"></span>
 		</div>
 	</div>
 	</div>

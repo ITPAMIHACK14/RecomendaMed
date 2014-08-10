@@ -28,7 +28,7 @@ encuesta familiar {
 //		}
 	}
 	bloque pareja {
-		habilitado si { estadoCivil == 'Casado' }
+		habilitado si { principal.estadoCivil == 'Casado' }
 		titulo = "Datos del conyuge"
 		pregunta nombre {
 			tipo = texto { max = 20 }
