@@ -59,6 +59,37 @@
       </div>
     </div>
   </fieldset>
+  <fieldset ng-class="{
+      'panel': true,
+      'panel-primary': true,
+      'panel-default': false
+    }" ng-disabled="false">
+    <div class="panel-heading">
+      <h3 class="panel-title">Datos de los hijos</h3>
+    </div>
+      <table class="panel-body table table-stripped table-hover table-condensed">
+        <tr>
+          <th><label>Nombre</label></th>
+          <th><label>Apellido</label></th>
+          <th><label>Fecha de nacimiento</label></th>
+        </tr>
+        <tbody>
+          <tr>
+            <td>
+              <input type="text" id="nombre" class="form-control" placeholder="Disabled input">
+            </td>
+            <td>
+              <input type="text" id="apellido" class="form-control" placeholder="Disabled input">
+            </td>
+            <td>
+              <select id="disabledSelect" class="form-control">
+                <option>Disabled select</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>    
+  </fieldset>
    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
