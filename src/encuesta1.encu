@@ -46,4 +46,23 @@ encuesta familiar {
 			obligatoria
 		}
 	}	
+	bloque multiple hijos {
+		habilitado si { principal.estadoCivil == 'Casado' }
+		titulo = "Datos de los hijos"
+		pregunta nombre {
+			tipo = texto { max = 20 }
+			descripcion = "Nombre"
+			obligatoria
+		}
+		pregunta apellido {
+			tipo = texto { max = 20 }
+			descripcion = "Apellido"
+			obligatoria
+		}
+		pregunta fechaNac {
+			tipo = fecha
+			descripcion = "Fecha de nacimiento"
+			obligatoria
+		}
+	}	
 }
