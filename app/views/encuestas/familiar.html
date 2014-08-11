@@ -74,15 +74,32 @@
 				<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.principal_estadoCivil.$invalid && familiar.principal_estadoCivil.$dirty"></span>
 			</div>
 		</div>
+		<div ng-class="{
+			'form-group':true, 
+			'has-success':familiar.principal_cantHijos.$valid, 
+			'has-error':familiar.principal_cantHijos.$invalid && familiar.principal_cantHijos.$dirty,
+			'has-feedback':true
+		}">
+			<label class="control-label" for="cantHijos">Cantidad de Hijos</label>
+			<div class="form-group">
+				<input type="number" class="form-control" id="principal_cantHijos" name="principal_cantHijos" ng-model="principal.cantHijos" 
+					ng-required="true"
+					min="0"
+					ng-change="updateElements(principal.cantHijos, 'hijos')"
+				>
+				<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.principal_cantHijos.$valid"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.principal_cantHijos.$invalid && familiar.principal_cantHijos.$dirty"></span>
+			</div>
+		</div>
 	</div>
 </fieldset>
 <fieldset 
 	ng-class="{
 		'panel': true,
-		'panel-primary':  principal.estadoCivil == 'Casado',
-		'panel-default': !( principal.estadoCivil == 'Casado')
+		'panel-primary': principal.estadoCivil == 'Casado',
+		'panel-default': !(principal.estadoCivil == 'Casado')
 	}" 
-	ng-disabled="!( principal.estadoCivil == 'Casado')"
+	ng-disabled="!(principal.estadoCivil == 'Casado')"
 >
 	<div class="panel-heading">
 		<h3 class="panel-title">Datos del conyuge</h3>
@@ -138,10 +155,10 @@
 <fieldset 
 	ng-class="{
 		'panel': true,
-		'panel-primary':  principal.estadoCivil == 'Casado',
-		'panel-default': !( principal.estadoCivil == 'Casado')
+		'panel-primary': principal.cantHijos > 0,
+		'panel-default': !(principal.cantHijos > 0)
 	}" 
-	ng-disabled="!( principal.estadoCivil == 'Casado')"
+	ng-disabled="!(principal.cantHijos > 0)"
 >
 	<div class="panel-heading">
 		<h3 class="panel-title">Datos de los hijos</h3>
@@ -153,15 +170,15 @@
 			<th><label class="control-label" for="hijos">Fecha de nacimiento</label></th>
 		</tr>
 		<tbody>
-			<tr>
+			<tr ng-repeat="element in hijos">
 				<td>
-					<input type="text" class="form-control" id="hijos_nombre" name="hijos_nombre" ng-model="hijos.nombre" 
+					<input type="text" class="form-control" id="hijos_nombre" name="hijos_nombre" ng-model="element.nombre" 
 						ng-required="true"
 						ng-maxlength="20"
 					>
 				</td>
 				<td>
-					<input type="text" class="form-control" id="hijos_apellido" name="hijos_apellido" ng-model="hijos.apellido" 
+					<input type="text" class="form-control" id="hijos_apellido" name="hijos_apellido" ng-model="element.apellido" 
 						ng-required="true"
 						ng-maxlength="20"
 					>

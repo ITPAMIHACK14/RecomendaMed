@@ -22,10 +22,11 @@ encuesta familiar {
 			descripcion = "Estado civil"
 			obligatoria
 		}
-//		pregunta cantHijos {
-//			tipo = numerico
-//			rango = (0,)
-//		}
+		pregunta cantHijos {
+			tipo = numerico { min = 0 }
+			descripcion = "Cantidad de Hijos"
+			obligatoria
+		}
 	}
 	bloque pareja {
 		habilitado si { principal.estadoCivil == 'Casado' }
@@ -46,8 +47,9 @@ encuesta familiar {
 			obligatoria
 		}
 	}	
-	bloque multiple hijos {
-		habilitado si { principal.estadoCivil == 'Casado' }
+	bloque hijos {
+		repetir { principal.cantHijos }
+		habilitado si { principal.cantHijos > 0 }
 		titulo = "Datos de los hijos"
 		pregunta nombre {
 			tipo = texto { max = 20 }
