@@ -23,24 +23,25 @@ angular.module('angularApp')
             var result = [];
 
             angular.forEach(masterdata, function(value){
-        		if(result.length < 50 && (nombreRx.test(value.nombre) 
-        			|| ubicacionRx.test(value.loc)
-        			|| ubicacionRx.test(value.dpto)
-        			|| ubicacionRx.test(value.pcia))){
+                if(result.length > 50) { return; }
+                if(querySQL && nombreRx.test(value.nombre)) { result.push(value); return; }
+        		if(ubicacion && (ubicacionRx.test(value.loc) || 
+                    ubicacionRx.test(value.dpto) || 
+                    ubicacionRx.test(value.pcia))) {
         			result.push(value);
         		}
         	});
 
             return result;
-        }
+        };
 
         this.findByID = function(id) {
         	var result = {};
         	angular.forEach(masterdata, function(value){
-        		if(value.id == id){
+        		if(value.id === id){
         			result = value;
         		}
         	});
             return result;
-        }
+        };
     });
