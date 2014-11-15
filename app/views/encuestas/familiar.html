@@ -59,23 +59,6 @@
 		</div>
 		<div ng-class="{
 			'form-group':true, 
-			'has-success':familiar.principal_estadoCivil.$valid, 
-			'has-error':familiar.principal_estadoCivil.$invalid && familiar.principal_estadoCivil.$dirty,
-			'has-feedback':true
-		}">
-			<label class="control-label" for="estadoCivil">Estado civil</label>
-			<div class="form-group">
-				<select id="principal_estadoCivil" name="principal_estadoCivil" ng-model="principal.estadoCivil" class="form-control">
-					<option>Soltero</option>
-					<option>Casado</option>
-					<option>Viudo</option>
-				</select>
-				<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.principal_estadoCivil.$valid"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.principal_estadoCivil.$invalid && familiar.principal_estadoCivil.$dirty"></span>
-			</div>
-		</div>
-		<div ng-class="{
-			'form-group':true, 
 			'has-success':familiar.principal_cantHijos.$valid, 
 			'has-error':familiar.principal_cantHijos.$invalid && familiar.principal_cantHijos.$dirty,
 			'has-feedback':true
@@ -89,6 +72,23 @@
 				>
 				<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.principal_cantHijos.$valid"></span>
 				<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.principal_cantHijos.$invalid && familiar.principal_cantHijos.$dirty"></span>
+			</div>
+		</div>
+		<div ng-class="{
+			'form-group':true, 
+			'has-success':familiar.principal_estadoCivil.$valid, 
+			'has-error':familiar.principal_estadoCivil.$invalid && familiar.principal_estadoCivil.$dirty,
+			'has-feedback':true
+		}">
+			<label class="control-label" for="estadoCivil">Estado civil</label>
+			<div class="form-group">
+				<select id="principal_estadoCivil" name="principal_estadoCivil" ng-model="principal.estadoCivil" class="form-control">
+					<option>Soltero</option>
+					<option>Casado</option>
+					<option>Viudo</option>
+				</select>
+				<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="familiar.principal_estadoCivil.$valid"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="familiar.principal_estadoCivil.$invalid && familiar.principal_estadoCivil.$dirty"></span>
 			</div>
 		</div>
 	</div>

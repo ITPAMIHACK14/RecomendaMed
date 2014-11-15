@@ -1,1 +1,25 @@
-<p>This is the main view.</p>
+<form class="form-inline" role="form">
+	<fieldset 
+		ng-class="{
+			'panel': true,
+			'panel-primary': true,
+			'panel-default': !(true)
+		}" 
+		ng-disabled="!(true)"
+	>
+		<div class="panel-heading">
+			<h3 class="panel-title">Buscar médicos</h3>
+		</div>
+		<div class="panel-body">    
+		  <div class="form-group">
+		    <label class="sr-only" for="mainSearchText">Especialidad o nombre del médico</label>
+		    <input type="text" class="form-control" id="mainSearch" placeholder="Especialidad o nombre del médico">
+		  </div>
+		  <div class="form-group">
+		    <label class="sr-only" for="exampleInputPassword2">Provincia</label>
+		    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Ubicación">
+		  </div>
+		  <button type="submit" class="btn btn-primary">Buscar</button>
+  	</div>
+  </fieldset>
+</form>
