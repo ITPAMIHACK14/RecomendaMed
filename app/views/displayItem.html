@@ -1,10 +1,23 @@
 <div class="text-center" ng-controller="ResultCtrl">
-		  <div class="form-group">
-		    <label class="sr-only" for="mainSearchText">Nombre</label>
-              {{item.nombre}}
-		  </div>
-		  <div class="form-group">
-		    <label class="sr-only" for="exampleInputPassword2">Direccion</label>
-              {{item.direccion}}
-		  </div>
+    <div class="form-group">
+        <label class="sr-only" for="mainSearchText">Nombre</label>
+          {{item.nombre}}
+    </div>
+    <div class="form-group">
+        <label class="sr-only" for="exampleInputPassword2">Direccion</label>
+          {{item.direccion}}
+    </div>
+    <div>
+        <img src="images/hi.jpg">
+    </div>
+
+    <form novalidate class="simple-form">
+        Starts: <input type="radio" ng-model="qualif.point" value="1" />1 Star
+        <input type="radio" ng-model="qualif.point" value="2" />2 Star
+        <input type="radio" ng-model="qualif.point" value="3" />3 Star
+        <input type="radio" ng-model="qualif.point" value="4" />4 Star
+        <input type="radio" ng-model="qualif.point" value="5" />5 Star<br />
+        Comentarios: <textarea ng-model="qualif.comment" /><br />
+        <button ng-click="calificar(qualif)">Calificar</button>
+    </form>
 </div>

@@ -12,7 +12,7 @@ angular.module('angularApp')
 
         $scope.templateUrl = 'views/partials/itemResult.html';
 
-        var items =  Dataservice.search("");
+        var items =  Dataservice.search($scope.mainSearch, $scope.ubicacion);
 
         $scope.items = items;
 
@@ -26,8 +26,16 @@ angular.module('angularApp')
         $scope.buscar = function() {
         	$location.path('/resultado');
         };
-    });
+    })
   .controller('DisplayCtrl', function ($scope, $rootScope, $location, Dataservice) {
         console.log("Displaying " + $rootScope.itemId);
-        $scope.item=Dataservice.findByID("");
+        $scope.item=Dataservice.findByID($rootScope.itemId);
+
+        $scope.calificar = function(qualif) {
+            $scope.master = angular.copy(qualif);
+        };
+
+        $scope.reset = function() {
+            $scope.qualif = angular.copy($scope.master);
+        };
    });
