@@ -8,15 +8,39 @@
  * Service in the hton1App.
  */
 angular.module('angularApp')
-    .service('Dataservice',  function() {
-        this.search = function(querySQL) {
+    .service('Dataservice',  function($http) {
 
-            var result = [{id:1, nombre:"Hospital Italiano", direccion:"Peron 5555"  }, {id:2, nombre:"Los Arcos", direccion:"Juan b Justo 4444"  }, {id:3, nombre:"Cesar Milstein", direccion:"EEUU 4444"  }];
+    	var masterdata = [];
 
-            return  result;
+    	$http.get('data/bocasdeatencion.json').success (function(data){
+				masterdata = angular.fromJson(data);
+		});
+
+        this.search = function(querySQL, ubicacion) {
+        	var nombreRx = new RegExp(querySQL, 'i');
+        	var ubicacionRx = new RegExp(ubicacion, 'i');
+
+            var result = [];
+
+            angular.forEach(masterdata, function(value){
+        		if(result.length < 50 && (nombreRx.test(value.nombre) 
+        			|| ubicacionRx.test(value.loc)
+        			|| ubicacionRx.test(value.dpto)
+        			|| ubicacionRx.test(value.pcia))){
+        			result.push(value);
+        		}
+        	});
+
+            return result;
         }
 
         this.findByID = function(id) {
-            return {id:1, nombre:"Hospital Italiano", direccion:"Peron 5555"  };
+        	var result = {};
+        	angular.forEach(masterdata, function(value){
+        		if(value.id == id){
+        			result = value;
+        		}
+        	});
+            return result;
         }
     });

@@ -12,23 +12,21 @@ angular.module('angularApp')
 
         $scope.templateUrl = 'views/partials/itemResult.html';
 
-        var items =  Dataservice.search($scope.mainSearch, $scope.ubicacion);
-
-        $scope.items = items;
-
         $scope.displayItem = function(idItem){
-            console.log("Display " + idItem);
+            console.log('Display ' + idItem);
             $rootScope.itemId = idItem;
             $location.path('/display');
 
         };
 
         $scope.buscar = function() {
-        	$location.path('/resultado');
+            $rootScope.items =  Dataservice.search($scope.mainSearch, $scope.ubicacion);
+            console.log($scope.items);
+            $location.path('/resultado');
         };
     })
   .controller('DisplayCtrl', function ($scope, $rootScope, $location, Dataservice) {
-        console.log("Displaying " + $rootScope.itemId);
+        console.log('Displaying ' + $rootScope.itemId);
         $scope.item=Dataservice.findByID($rootScope.itemId);
 
         $scope.calificar = function(qualif) {
