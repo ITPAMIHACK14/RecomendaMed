@@ -16,7 +16,7 @@
 
     <tr ng-repeat="item in items">
         <td>{{item.nombre}}</td>
-        <td>{{item.pcia}}</td>
+        <td>{{item.calle}}  {{item.puerta}}, {{item.dpto}}, {{item.pcia}}</td>
         <td>
             <button type="button" class="btn btn-primary" ng-click="displayItem(item.id)" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
                 Ver

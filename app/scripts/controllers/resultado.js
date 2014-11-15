@@ -31,6 +31,7 @@ angular.module('angularApp')
 
         $scope.calificar = function(qualif) {
             $scope.master = angular.copy(qualif);
+            $location.path('/resultado');
         };
 
         $scope.reset = function() {
