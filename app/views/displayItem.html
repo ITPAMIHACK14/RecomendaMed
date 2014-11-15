@@ -5,13 +5,20 @@
         <img src="images/hi.jpg">
     </div>
 
-    <form novalidate class="simple-form">
-        Starts: <input type="radio" ng-model="qualif.point" value="1" />1 Star
-        <input type="radio" ng-model="qualif.point" value="2" />2 Star
-        <input type="radio" ng-model="qualif.point" value="3" />3 Star
-        <input type="radio" ng-model="qualif.point" value="4" />4 Star
-        <input type="radio" ng-model="qualif.point" value="5" />5 Star<br />
-        Comentarios: <textarea ng-model="qualif.comment" /><br />
-        <button ng-click="calificar(qualif)">Calificar</button>
-    </form>
+    <div class="text-center">
+        <form novalidate class="simple-form">
+
+            <fieldset class="rating">
+                <legend>Calificar:</legend>
+                <input type="radio" ng-model="qualif.star" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+                <input type="radio" ng-model="qualif.star" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                <input type="radio" ng-model="qualif.star" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+                <input type="radio" ng-model="qualif.star" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+                <input type="radio" ng-model="qualif.star" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+            </fieldset>
+            <legend>Comentario:</legend>
+            <textarea ng-model="qualif.comment" required/>
+            <button ng-click="calificar(qualif)">Calificar</button>
+        </form>
+    </div>
 </div>
