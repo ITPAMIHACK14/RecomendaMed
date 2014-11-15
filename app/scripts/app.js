@@ -27,9 +27,9 @@ angular
         templateUrl: 'views/encuestas/familiar.html',
         controller: 'familiar'
       })
-      .when('/muestra', {
-        templateUrl: 'views/familiar.html',
-        controller: 'familiar'
+      .when('/resultado', {
+        templateUrl: 'views/resultado.html',
+        controller: 'ResultCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
