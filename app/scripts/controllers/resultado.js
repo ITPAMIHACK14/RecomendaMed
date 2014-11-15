@@ -23,4 +23,7 @@ angular.module('angularApp')
 
         };
 
-    })
+        $scope.buscar = function() {
+        	$location.path('/resultado');
+        };
+    });

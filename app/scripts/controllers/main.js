@@ -9,7 +9,10 @@
  */
 angular.module('angularApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.nombre='Nico';
+    $scope.isActive = function (viewLocation) {
+       var active = (viewLocation === $location.path());
+       return active;
+    };
   })
   .controller('familiar', function ($scope) {
   	$scope.updateElements = function(cantElements, elementsName) {
@@ -18,4 +21,6 @@ angular.module('angularApp')
   		while(cantElements > elements.length) { elements.push({}); }
   		while(cantElements < elements.length) { elements.pop(); }
   	}
-  });
+  })
+;
+
