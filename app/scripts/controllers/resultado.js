@@ -24,3 +24,7 @@ angular.module('angularApp')
         };
 
     })
+  .controller('DisplayCtrl', function ($scope, $rootScope, $location) {
+        console.log("Displaying " + $rootScope.itemId);
+        $scope.item={id:1, nombre:"Hospital Italiano", direccion:"Peron 5555"  };
+   })
