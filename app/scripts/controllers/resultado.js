@@ -8,11 +8,11 @@
  * Controller of the angularApp
  */
 angular.module('angularApp')
-  .controller('ResultCtrl', function ($scope, $rootScope, $location) {
+  .controller('ResultCtrl', function ($scope, $rootScope, $location, Dataservice) {
 
         $scope.templateUrl = 'views/partials/itemResult.html';
 
-        var items = [{id:1, nombre:"Hospital Italiano", direccion:"Peron 5555"  }, {id:2, nombre:"Los Arcos", direccion:"Juan b Justo 4444"  }, {id:3, nombre:"Cesar Milstein", direccion:"EEUU 4444"  }];
+        var items =  Dataservice.search("");
 
         $scope.items = items;
 
@@ -24,7 +24,7 @@ angular.module('angularApp')
         };
 
     })
-  .controller('DisplayCtrl', function ($scope, $rootScope, $location) {
+  .controller('DisplayCtrl', function ($scope, $rootScope, $location, Dataservice) {
         console.log("Displaying " + $rootScope.itemId);
-        $scope.item={id:1, nombre:"Hospital Italiano", direccion:"Peron 5555"  };
+        $scope.item=Dataservice.findByID("");;
    })
